@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { getSortedSections } from '../lib/sections'
 import Section from '../components/section'
+import classNames from 'classnames'
 
 export async function getStaticProps() {
   const allSections = getSortedSections()
@@ -14,6 +15,15 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allSections }) {
+
+  console.log('allSections', allSections)
+
+  const sections = allSections.map((section) => {
+    return <Section key={section.id} title={section.title} content={section.content} />
+  })
+
+  console.log('sections', sections)
+
   return (
     <div className={styles.container}>
       <Head>
@@ -29,13 +39,14 @@ export default function Home({ allSections }) {
           </h1>
 
           <p className={styles.description}>
-            Scroll for FAQs, RSVP and stuff &#128071;
+            Scroll for details &#128071;
           </p>
         </div>
-
-        {allSections.map(({ id, data, content }) => (
-          <Section id={id} title={data.title} content={content} />
-        ))}
+        {allSections.map(({ id, content, title}) => {
+          return (
+            <Section key={id} title={title} content={content} />
+          )
+        })}
       </main>
     </div>
   )

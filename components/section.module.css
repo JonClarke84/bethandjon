@@ -1,11 +1,27 @@
 .section {
   padding: 0.5rem 1rem;
-  color: #232323;
   min-width: 100vw;
   min-height: 50vh;
-  background-color: lightpink;
+  background-color: var(--light-blue);
+  color: var(--blue);
 }
 
-.section:nth-child(2n+2) {
-  background-color: lightblue;
+.section:nth-child(2n) {
+  background-color: var(--blue);
+  color: var(--dark-blue);
+}
+
+.section:nth-child(3n) { 
+  background-color: var(--dark-blue);
+  color: var(--yellow)
+}
+
+.section:nth-child(4n) { 
+  background-color: var(--yellow);
+  color: var(--dark-blue)
+}
+
+.section:nth-child(5n) { 
+  background-color: var(--orange);
+  color: var(--blue)
 }

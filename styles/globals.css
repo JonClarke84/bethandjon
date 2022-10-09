@@ -6,6 +6,18 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+/* Colours */
+
+:root {
+  --light-blue: #8ECAE6;
+  --blue: #219EBC;
+  --dark-blue: #023047;
+  --yellow: #FFB703;
+  --orange: #FB8500;
+  --black: #232323;
+  --white: #FFFFFF;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -20,7 +32,7 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    color: var(--light-blue);
+    background: var(--dark-blue);
   }
 }
