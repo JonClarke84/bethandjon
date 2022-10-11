@@ -25,3 +25,7 @@
   background-color: var(--orange);
   color: var(--blue)
 }
+
+.map {
+  width: 100%;
+}
