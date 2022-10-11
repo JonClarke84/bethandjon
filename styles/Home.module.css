@@ -40,7 +40,7 @@
 }
 
 .image {
-  height: 100vh;
+  height: 120vh;
   object-fit: cover;
   z-index: 0;
 }
