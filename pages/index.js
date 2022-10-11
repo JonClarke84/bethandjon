@@ -29,6 +29,7 @@ export default function Home({ allSections }) {
             src="/whitstable.jpg"
             alt="Beth and Jon"
             layout='fill'
+            sizes='100vh'
           />
           <div className={styles.text}>
             <h1 className={styles.title}>

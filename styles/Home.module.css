@@ -11,6 +11,15 @@
   align-items: center;
 }
 
+.home {
+  min-height: 100vh;
+}
+
+.image {
+  object-fit: cover;
+  z-index: 0;
+}
+
 .text {
   display: flex;
   justify-content: center;
@@ -33,14 +42,4 @@
   line-height: 1.5;
   font-size: 1.25rem;
   margin: 0;
-}
-
-.home {
-  min-height: 100vh;
-}
-
-.image {
-  height: 120vh;
-  object-fit: cover;
-  z-index: 0;
 }
