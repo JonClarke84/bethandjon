@@ -28,7 +28,7 @@
   align-items: center;
   flex-direction: column;
   color: var(--white);
-  text-shadow: 0 0 0.5rem #232323;
+  text-shadow: 0 0 0.5rem var(--black);
   z-index: 1;
   position: relative;
 }
