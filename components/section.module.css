@@ -4,6 +4,12 @@
   min-height: 50vh;
   background-color: var(--light-blue);
   color: var(--dark-blue);
+  display: flex;
+  justify-content: center;
+}
+
+.sectionContent {
+  width: clamp(300px, 80%, 1000px);
 }
 
 .section:nth-child(2n) {

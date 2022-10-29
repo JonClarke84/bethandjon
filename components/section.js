@@ -7,8 +7,10 @@ export default function Section({ title, content }) {
 
   return (
     <section className={classNames(styles.section)}>
-      <h2 className={styles.title}>{title}</h2>
-      <div className={styles.content} dangerouslySetInnerHTML={dangerousContent} />
+      <div className={styles.sectionContent}>
+        <h2 className={styles.title}>{title}</h2>
+        <div className={styles.content} dangerouslySetInnerHTML={dangerousContent} />
+      </div>
     </section>
   )
 }
