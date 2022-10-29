@@ -28,22 +28,31 @@
   align-items: center;
   flex-direction: column;
   color: var(--white);
-  text-shadow: 0 0 0.5rem var(--black);
   z-index: 1;
   position: relative;
 }
 
-.title {
-  text-align: center;
-  padding-top: 25vh;
-  line-height: 1.15;
-  font-size: 2rem;
+.titleContainer {
+  margin-top: 15vh;
+  width: 100%;
+  background-color: var(--dark-blue);
 }
 
-.description {
-  line-height: 1.5;
-  font-size: 1.25rem;
-  margin: 0;
+.title {
+  line-height: 1.15;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  text-align: center;
+}
+
+.subTitleContainer {
+  width: 100%;
+  background-color: var(--blue);
+}
+
+.subTitle {
+  line-height: 1.15;
+  font-size: clamp(1rem, 2vw, 2rem);
+  text-align: center;
 }
 
 .progressBar {
@@ -55,5 +64,4 @@
   background: var(--yellow);
   transform-origin: 0%;
   z-index: 5;
-  /* border-bottom: 2px solid var(--dark-blue); */
 }

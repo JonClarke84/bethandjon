@@ -38,15 +38,21 @@ export default function Home({ allSections }) {
             sizes='100vh'
           />
           <div className={styles.text}>
-            <h1 className={styles.title}>
-              Beth and Jon's not-wedding party
-            </h1>
+            <div className={styles.titleContainer}>
+              <h1 className={styles.title}>
+                Beth and Jon's not-wedding party
+              </h1>
+            </div>
 
-            <p className={styles.description}>
-              Scroll for details &#128071;
-            </p>
+            <div className={styles.subTitleContainer}>
+              <h2 className={styles.subTitle}>August 24th 2023, save the date!</h2>
+              <p className={styles.subTitle}>
+                Scroll for details &#128071;
+              </p>
+            </div>
           </div>
         </div>
+
         {allSections.map(({ id, content, title}) => {
           return (
             <Section key={id} title={title} content={content} />
