@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { getSortedSections } from '../lib/sections'
-import { motion, useSpring, useScroll } from "framer-motion"
 import Section from '../components/section'
 
 export async function getStaticProps() {
@@ -15,10 +14,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allSections }) {
-
-  const { scrollYProgress } = useScroll()
-  const scaleX = useSpring(scrollYProgress, { stiffness: 400, damping: 90 })
-
   return (
     <div className={styles.container}>
       <Head>
@@ -28,7 +23,6 @@ export default function Home({ allSections }) {
       </Head>
 
       <main className={styles.main}>
-        <motion.div className={styles.progressBar} style={{ scaleX }} />
         <div className={styles.home}>
           <Image
             className={styles.image}
@@ -52,12 +46,13 @@ export default function Home({ allSections }) {
             </div>
           </div>
         </div>
-
-        {allSections.map(({ id, content, title}) => {
-          return (
-            <Section key={id} title={title} content={content} />
-          )
-        })}
+        <div name="content">
+          {allSections.map(({ id, content, title}) => {
+            return (
+              <Section key={id} title={title} content={content} />
+            )
+          })}
+        </div>
       </main>
     </div>
   )
