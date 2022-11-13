@@ -19,6 +19,10 @@ export default function Navbar() {
     setActive(!active)
   }
 
+  function setFalse() {
+    setActive(false)
+  }
+
   const variants = {
     active: {
       x: 0,
@@ -38,7 +42,7 @@ export default function Navbar() {
     <div className={styles.fixed}>
       <nav className={styles.navbar}>
         <Link href={'/'}>
-          <a className={styles.link}><h3>Home</h3></a>
+          <a className={styles.link} onClick={setFalse}><h3>Home</h3></a>
         </Link>
         <div className={styles.hamburgerContainer} onClick={handleClick}>
           <div>
@@ -58,7 +62,7 @@ export default function Navbar() {
         {menuItems.map(({ name, href }) => {
           return (
             <Link key={name} href={href}>
-              <a className={styles.dropdownLink}><h3>{name}</h3></a>
+              <a className={styles.dropdownLink} onClick={handleClick}><h3>{name}</h3></a>
             </Link>
           )
         })}

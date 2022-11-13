@@ -1,6 +1,7 @@
 .fixed {
   position: fixed;
   top: 0;
+  height: 0;
   width: 100%;
   z-index: 10;
 }
@@ -49,6 +50,7 @@
 }
 
 .hamburgerContainer {
+  cursor: pointer;
   display: flex;
   align-items: center;
   background-color: var(--yellow);
@@ -56,7 +58,6 @@
 }
 
 .hamburger {
-  cursor: pointer;
   display: block;
   width: 33px;
   height: 4px;
