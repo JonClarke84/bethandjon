@@ -45,7 +45,7 @@ export default function Home({ allSections }) {
             </div>
 
             <div className={styles.subTitleContainer}>
-              <h2 className={styles.subTitle}>August 24th 2023, save the date!</h2>
+              <h2 className={styles.subTitle}>24th August 2023, save the date!</h2>
               <p className={styles.subTitle}>
                 Scroll for details &#128071;
               </p>
