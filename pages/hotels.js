@@ -13,10 +13,11 @@ export default function Hotels({ hotels }) {
         <HotelList
           key={hotel._id}
           title={hotel.name}
+          url={hotel.url}
           description={hotel.description}
           map={hotel.googleMapUrl}/>
       ))}
-      
+
     </HotelLayout>
   )
 }

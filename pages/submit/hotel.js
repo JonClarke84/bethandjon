@@ -3,6 +3,7 @@ import { useState } from 'react'
 export default function SubmitHotel () {
 
   const [name, setName] = useState('')
+  const [url, setUrl] = useState('')
   const [googleMapUrl, setGoogleMapUrl] = useState('')
   const [description, setDescription] = useState('')
 
@@ -16,12 +17,14 @@ export default function SubmitHotel () {
       },
       body: JSON.stringify({
         name,
+        url,
         googleMapUrl,
         description
       })
     }).then(res => {
         alert('Hotel added!')
         setName('')
+        setUrl('')
         setGoogleMapUrl('')
         setDescription('')
       }
@@ -36,6 +39,10 @@ export default function SubmitHotel () {
           <li>
             <label htmlFor="name">Name</label>
             <input type="text" id="name" onChange={e => setName(e.target.value)} value={name} />
+          </li>
+          <li>
+            <label htmlFor="url">URL</label>
+            <input type="text" id="url" onChange={e => setUrl(e.target.value)} value={url} />
           </li>
           <li>
             <label htmlFor="google-map-url">Google Map URL</label>
