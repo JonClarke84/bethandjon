@@ -1,8 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import MainTitle from '../components/mainTitle'
 import styles from '../styles/Home.module.css'
 import { getSortedSections } from '../lib/sections'
 import Section from '../components/section'
+import { Main } from 'next/document'
 
 export async function getStaticProps() {
   const allSections = getSortedSections()
@@ -31,13 +33,9 @@ export default function Home({ allSections }) {
             layout='fill'
             sizes='100vh'
           />
-          <div className={styles.text}>
-            <div className={styles.titleContainer}>
-              <h1 className={styles.title}>
-                Beth and Jon's not-wedding party
-              </h1>
-            </div>
-
+  
+        <div className={styles.text}>
+          <MainTitle title="Beth and Jon's not-wedding party" />
             <div className={styles.subTitleContainer}>
               <h2 className={styles.subTitle}>August 24th 2023, save the date!</h2>
               <p className={styles.subTitle}>

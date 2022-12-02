@@ -54,3 +54,14 @@
   font-size: clamp(1rem, 2vw, 2rem);
   text-align: center;
 }
+
+.map {
+  border: 1px solid var(--dark-blue);
+}
+
+.pageHeader {
+  min-width: 100vw;
+  margin: 0;
+  padding: 1em 0.25em;
+  background-color: var(--light-blue);
+}

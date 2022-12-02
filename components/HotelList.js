@@ -1,6 +1,6 @@
-import styles from './section.module.css'
+import styles from '../styles/hotelList.module.css'
 
-export default function Section({ title, content, description, map }) {
+export default function HotelList({ title, content, description, map }) {
 
   const dangerousContent = { __html: content }
 
