@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css'
 
 export default function Hotels({ hotels }) {
   return (
-    <HotelLayout title="The East Quay Venue" description="The East Quay Venue">
+    <HotelLayout title="Where to stay in Whitstable" description="Where to stay in Whitstable">
 
       <h1 className={styles.pageHeader}>Where to stay</h1>
 
