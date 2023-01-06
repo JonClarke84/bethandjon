@@ -65,3 +65,26 @@
   padding: 1em 0.25em;
   background-color: var(--light-blue);
 }
+
+.adminLink {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+.guestListItem {
+  border: 1px solid var(--dark-blue);
+  margin: 0.5em 0;
+  padding: 0.5em;
+  width: fit-content;
+}
+
+.guestListTable {
+  margin: 0 auto;
+}
+
+.guestListTableItem {
+  border: 1px solid var(--dark-blue);
+  margin: 0.5em 0;
+  padding: 0.5em;
+  width: fit-content;
+}
