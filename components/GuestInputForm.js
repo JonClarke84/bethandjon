@@ -15,17 +15,13 @@ export default function GuestInputForm({ guest, setGuest, success, addedGuestNam
         <h3>Lead Guest</h3>
         <p>
           <label htmlFor="firstName">First Name: </label>
-          <input type="text" name="firstName" id="firstName"/>
+          <input type="text" name="firstName" id="firstName" onChange={e => setGuest({ ...guest, firstName: e.target.value })} required />
           <label htmlFor="lastName">Last Name: </label>
-          <input type="text" name="lastName" id="lastName" onChange={e => setGuest({ ...guest, lastName: e.target.value })} />
-        </p>
-        <p>
-          <label htmlFor="email">Email: </label>
-          <input type="email" name="email" id="email" onChange={e => setGuest({ ...guest, email: e.target.value })} />
+          <input type="text" name="lastName" id="lastName" onChange={e => setGuest({ ...guest, lastName: e.target.value })} required />
         </p>
         <p>
           <label htmlFor="phone">Phone: </label>
-          <input type="tel" name="phone" id="phone" onChange={e => setGuest({ ...guest, phone: e.target.value })} />
+          <input type="tel" name="phone" id="phone" onChange={e => setGuest({ ...guest, phone: e.target.value })} required />
         </p>
         <p>
           <label htmlFor="eveningOrDay">Evening or Day: </label>
@@ -47,8 +43,8 @@ export default function GuestInputForm({ guest, setGuest, success, addedGuestNam
           </p>
         }
         <p>
-          <label htmlFor='number-of-children'>Number of children: </label>
-          <select name="number-of-children" id="number-of-children" onChange={e => setGuest({ ...guest, numberOfChildren: e.target.value })}>
+          <label htmlFor='numberOfChildren'>Number of children: </label>
+          <select name="numberOfChildren" id="numberOfChildren" onChange={e => setGuest({ ...guest, numberOfChildren: e.target.value })}>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -58,7 +54,7 @@ export default function GuestInputForm({ guest, setGuest, success, addedGuestNam
         </p>
         <div>
           {Array.from({ length: guest.numberOfChildren }, (_, i) => (
-            <ChildInput key={i} i={i} />
+            <ChildInput key={i} i={i} guest={guest} setGuest={setGuest} />
           ))}
         </div>
         <button type="submit">Submit</button>
@@ -67,11 +63,11 @@ export default function GuestInputForm({ guest, setGuest, success, addedGuestNam
   )
 }
 
-function ChildInput({ i }) {
+function ChildInput({ i, guest, setGuest }) {
   return (
     <p>
       <label htmlFor={`children`}>Child {i + 1} Name: </label>
-      <input type="text" name={`children`} id={`child-${i}-name`} />
+      <input type="text" name={`children`} id={`child-${i}-name`} onChange={e => setGuest({ ...guest, children: { ...guest.children, [i]: e.target.value } })} />
     </p>
   )
 }

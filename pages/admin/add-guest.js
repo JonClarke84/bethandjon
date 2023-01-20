@@ -5,7 +5,19 @@ export default function AddGuest() {
   const [success, setSuccess] = useState(false)
   const [addedGuestName, setAddedGuestName] = useState('')
 
-  const [guest, setGuest] = useState({})
+  const [guest, setGuest] = useState(
+    {
+      firstName: '',
+      lastName: '',
+      phone: '',
+      eveningOrDay: '',
+      plusOne: '',
+      plusOneFirstName: '',
+      plusOneLastName: '',
+      numberOfChildren: '',
+      children: []
+    }
+  )
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search)
