@@ -1,12 +1,5 @@
 import clientPromise from "../../lib/mongodb"
 
-// need a handleSubmit function that will group the responses by person and send to the api
-function handleSubmit(e) {
-  e.preventDefault()
-
-  console.log(e)
-}
-
 export default function RsvpForm ({ family, food }) {
   return (
     <div>
@@ -17,9 +10,12 @@ export default function RsvpForm ({ family, food }) {
               <h3 key={i}>{guest.firstName} {guest.lastName}</h3>
               <p>{i}</p>
               <ul>
-                <li>
+                <li key={i} name="rsvp">
                   <label htmlFor="rsvp">Attending: </label>
-                  <input type="checkbox" name="rsvp" value="yes" />
+                  <select name="rsvp">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
                 </li>
                 <li>
                   {guest.eveningOrDay === 'day' ? (
@@ -42,7 +38,7 @@ export default function RsvpForm ({ family, food }) {
             </div>
           )
         })}
-        <button onClick={handleSubmit}>Submit</button>
+        <button>Submit</button>
       </form>
     </div>
   )
