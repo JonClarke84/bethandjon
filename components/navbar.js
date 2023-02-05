@@ -13,7 +13,7 @@ export default function Navbar() {
     { name: 'RSVP', href: '/rsvp' },
     { name: 'Venue', href: '/venue' },
     { name: 'Schedule', href: '/schedule' },
-    { name: 'Food', href: '/food' },
+    { name: 'Menu', href: '/menu' },
     { name: 'Hotels', href: '/hotels' },
   ]
 

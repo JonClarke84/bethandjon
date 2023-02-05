@@ -18,16 +18,10 @@ async function getUser (req, res) {
   const db = client.db("bethandjon")
   try {
     const leadGuest = await db.collection("guests").findOne({phone: req.body.phone})
-    if(leadGuest) {
-      const familyId = leadGuest.familyId
-      const family = await db.collection("guests").find({ familyId: familyId }).toArray()
-      return family
-    } else {
-      return false
-    }
-  }
-  catch (err) {
-    console.log(err)
-    return false
+    const familyId = leadGuest.familyId
+    const family = await db.collection("guests").find({ familyId: familyId }).toArray()
+    return family
+  } catch (err) {
+    res.status(500).json({ message: 'error' })
   }
 }

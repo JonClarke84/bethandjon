@@ -9,7 +9,7 @@ const Person = new Schema({
   phone: { type: String, unique: true },
   eveningOrDay: { type: String, required: true, default: 'evening' },
   invited: { type: Boolean, default: true },
-  attending: { type: Boolean, default: false },
+  rsvp: { type: Boolean, default: false },
   food: { type: String },
   familyId: { type: String, required: true }
 })

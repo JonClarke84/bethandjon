@@ -12,18 +12,17 @@ export default async function handler(req, res) {
     )
   }
 
-  req.body.guestId.forEach(async (guest, index) => {
-    const setRsvp = () => {
-      if (req.body.rsvp[index] === 'yes') {
-        return true
-      } else {
-        return false
-      }
-    }
-    req.body.rsvp[index] = setRsvp()
-    const updatedGuest = await mutateGuest(guest, req.body.rsvp[index], req.body.foodChoice[index])
-    console.log('Updated guest: ', updatedGuest)
-  })
+  function setRsvp (rsvp) {
+    if (rsvp === 'yes') return true
+    return false
+  }
 
-  res.status(200).json({ ...req.body })
+  try { 
+    req.body.guestId.forEach(async (guest, index) => {
+      await mutateGuest(guest, setRsvp(req.body.rsvp[index]), req.body.foodChoice[index])
+    })
+    res.status(200).json({ message: 'Success, your details have been updated' }) // TODO: redirect to thank you page
+  } catch (error) {
+    res.status(500).json({ error })
+  }
 }

@@ -8,7 +8,6 @@ export default function RsvpForm ({ family, food }) {
           return (
             <div key={i}>
               <h3 key={i}>{guest.firstName} {guest.lastName}</h3>
-              <p>{i}</p>
               <ul>
                 <li key={i} name="rsvp">
                   <label htmlFor="rsvp">Attending: </label>
@@ -23,6 +22,7 @@ export default function RsvpForm ({ family, food }) {
                     <label htmlFor="foodChoice">Menu Choice: </label>
                       <select name="foodChoice">
                         {food.map((item, i) => {
+                          { if (!guest.isChild && item.isChildOption) return }
                           return (
                             <option value={item.name} key={i}>{item.name}</option>
                           )

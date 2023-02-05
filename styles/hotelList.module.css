@@ -1,7 +1,15 @@
 .section {
+  padding: 0.5rem 1rem;
   min-width: 100vw;
-  padding: 0.25em 1em;
+  min-height: 50vh;
   background-color: var(--light-blue);
+  color: var(--dark-blue);
+  display: flex;
+  justify-content: center;
+}
+
+.sectionContent {
+  width: clamp(300px, 80%, 1000px);
 }
 
 .section:nth-child(2n) {
@@ -24,8 +32,4 @@
 .map {
   border: 5px solid var(--blue);
   border-radius: 0.25rem;
-}
-
-.link {
-  text-decoration: underline;
 }

@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 
 function stripWhitespace(str) {
@@ -13,8 +16,10 @@ function checkIfPhone(str) {
   return regex.test(str)
 }
 
+
 export default function Rsvp() {
   const router = useRouter()
+  const [alert, setAlert] = useState(null)
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -32,16 +37,20 @@ export default function Rsvp() {
         body: JSON.stringify({ phone: sanitisedInput })
       })
       const data = await family.json()
-      if(data) {
-        router.push(`/rsvp/${data[0].familyId}`)
+      if(data.message === 'error') {
+        setAlert('Sorry, we couldn\'t find a family with that phone number. Please try again.')
       } else {
-        alert.error('Sorry, we couldn\'t find a family with that phone number')
+        router.push(`/rsvp/${data[0].familyId}`)
       }
+    } else {
+      setAlert('Please enter a valid phone number.')
+      return
     }
   }
 
   return (
     <div>
+      {alert && <p>{alert}</p>}
       <form>
       <input type='text' name='email-phone-input' placeholder='Enter your phone number'></input>
       <button type="submit" onClick={handleSubmit}>Sign in</button>
