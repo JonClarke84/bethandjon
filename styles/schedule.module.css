@@ -1,0 +1,19 @@
+.schedule {
+  text-align: center;
+  margin: 0 auto;
+  width: clamp(300px, 50%, 500px);
+  padding: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--dark-blue);
+}
+
+.title {
+  margin: 0;
+  padding: 1rem 2rem;
+  line-height: 1.15;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  text-align: center;
+  background-color: var(--dark-blue)!important;
+  color: var(--white);
+}
