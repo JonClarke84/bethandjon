@@ -1,7 +1,21 @@
+.menu {
+  text-align:center;
+}
+
+.title {
+  margin: 0;
+  padding: 1rem 2rem;
+  line-height: 1.15;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  text-align: center;
+  background-color: var(--dark-blue)!important;
+  color: var(--white);
+}
+
 .section {
   padding: 0.5rem 1rem;
   min-width: 100vw;
-  min-height: 50vh;
+  min-height: 15vh;
   background-color: var(--light-blue)!important;
   color: var(--dark-blue);
   display: flex;
@@ -27,13 +41,4 @@
     padding: 1rem 2rem;
     font-size: large;
   }
-}
-
-.map {
-  border: 5px solid var(--blue);
-  border-radius: 0.25rem;
-}
-
-.link {
-  text-decoration: underline;
 }

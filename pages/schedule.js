@@ -9,15 +9,15 @@ export default function Schedule() {
   ]
 
   return (
-    <PageLayout title="Schedule" description="Schedule">
-      <h1>Order of the day</h1>
-      <ul>
+    <div >
+      <h1 className={styles.title}>Order of the day</h1>
+      <ul className={styles.schedule}>
         {schedule.map((item, index) => (
           <div key={index}>
             <li>{item.time} - {item.event}</li>
           </div>
         ))}
       </ul>
-    </PageLayout>
+    </div>
   )
 }

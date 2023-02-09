@@ -1,14 +1,3 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-body {
-  margin-top: 5vh;
-}
 
 /* Colours */
 
@@ -20,6 +9,19 @@ body {
   --orange: #FB8500;
   --black: #232323;
   --white: #FFFFFF;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: var(--light-blue);
+}
+
+body {
+  margin-top: 5vh;
 }
 
 a {

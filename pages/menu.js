@@ -1,37 +1,61 @@
 import clientPromise from "../lib/mongodb"
+import styles from '../styles/menu.module.css'
 
 export default function Menu({ menu }) {
   return (
-    <div>
-      <h1>The Menu</h1>
-      <h2>Lunch time</h2>
-      <ul>
-        {menu.map((item, i) => {
-          if (item.isChildOption) return
-          return (
-          <div key={i}>
-            {(i > 0) && <li>~</li>}
-            <li><h4>{item.name}</h4></li>
-            <li><i>{item.description}</i></li>
+    <div className={styles.menu}>
+      <h1 className={styles.title}>The Menu</h1>
+      <div>
+        <section className={styles.section}>
+          <div className={styles.sectionContent}>
+            <h3>Lunch time</h3>
+            <ul>
+              {menu.map((item, i) => {
+                if (item.isChildOption) return
+                return (
+                  <div key={i}>
+                    {(i > 0) && <li>~</li>}
+                    <li><h4>{item.name}</h4></li>
+                    <li><i>{item.description}</i></li>
+                  </div>
+                )}
+              )}
+            </ul>
           </div>
-        )})}
-      </ul>
-      <h3>For children</h3>
-      <ul>
-        {menu.map((item, i) => {
-          if (!item.isChildOption) return
-          return (
-            <div key={i}>
-            {(i != 3) && <li>~</li>}
-            <li><h4>{item.name}</h4></li>
-            <li><i>{item.description}</i></li>
+        </section>
+        <section className={styles.section}>
+          <div className={styles.sectionContent}>
+            <h3>For children</h3>
+            <ul>
+              {menu.map((item, i) => {
+                if (!item.isChildOption) return
+                return (
+                  <div key={i}>
+                  {(i != 3) && <li>~</li>}
+                  <li><h4>{item.name}</h4></li>
+                  <li><i>{item.description}</i></li>
+                </div>
+              )})}
+            </ul>
           </div>
-        )})}
-      </ul>
-      <h2>Evening</h2>
-      <ul>
-        <li>Pizza!</li>
-      </ul>
+        </section>
+        <section className={styles.section}>
+          <div className={styles.sectionContent}>
+              <h3>Dessert</h3>
+              <ul>
+                <li><i>TBC<br />(there will be some though don't worry)</i></li>
+              </ul>
+          </div>
+        </section>
+        <section className={styles.section}>
+          <div className={styles.sectionContent}>
+            <h3>Evening</h3>
+            <ul>
+              <li>Hot buffet!</li>
+            </ul>
+          </div>
+        </section>
+      </div>
     </div>
   )
 }

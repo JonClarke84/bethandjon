@@ -4,7 +4,6 @@ import MainTitle from '../components/mainTitle'
 import styles from '../styles/Home.module.css'
 import { getSortedSections } from '../lib/sections'
 import Section from '../components/section'
-import { Main } from 'next/document'
 
 export async function getStaticProps() {
   const allSections = getSortedSections()
@@ -18,12 +17,6 @@ export async function getStaticProps() {
 export default function Home({ allSections }) {
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Beth and Jon's not-wedding party</title>
-        <meta name="description" content="Beth and Jon's not-wedding party" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className={styles.main}>
         <div className={styles.home}>
           <Image
@@ -37,10 +30,10 @@ export default function Home({ allSections }) {
         <div className={styles.text}>
           <MainTitle title="Beth and Jon's not-wedding party" />
             <div className={styles.subTitleContainer}>
-              <h2 className={styles.subTitle}>August 24th 2023, save the date!</h2>
-              <p className={styles.subTitle}>
-                Scroll for details &#128071;
-              </p>
+              <h2 className={styles.subTitle}>August 24th 2023</h2>
+              <h2 className={styles.subTitle}>
+                East Quay Venue, Whitstable, Kent
+              </h2>
             </div>
           </div>
         </div>

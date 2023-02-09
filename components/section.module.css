@@ -2,7 +2,7 @@
   padding: 0.5rem 1rem;
   min-width: 100vw;
   min-height: 50vh;
-  background-color: var(--light-blue);
+  background-color: var(--light-blue)!important;
   color: var(--dark-blue);
   display: flex;
   justify-content: center;
@@ -13,12 +13,12 @@
 }
 
 .section:nth-child(2n) {
-  background-color: var(--blue);
+  background-color: var(--blue)!important;
   color: var(--dark-blue);
 }
 
 .section:nth-child(3n) { 
-  background-color: var(--light-blue);
+  background-color: var(--light-blue)!important;
   color: var(--dark-blue);
 }
 

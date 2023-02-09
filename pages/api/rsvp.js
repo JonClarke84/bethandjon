@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     req.body.guestId.forEach(async (guest, index) => {
       await mutateGuest(guest, setRsvp(req.body.rsvp[index]), req.body.foodChoice[index])
     })
-    res.status(200).json({ message: 'Success, your details have been updated' }) // TODO: redirect to thank you page
+    res.redirect('/rsvp/success')
   } catch (error) {
     res.status(500).json({ error })
   }

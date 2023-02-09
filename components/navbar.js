@@ -1,7 +1,6 @@
 'use client'
 
 import styles from './navbar.module.css'
-import Link from 'next/link'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 
@@ -10,10 +9,10 @@ export default function Navbar() {
   const [active, setActive] = useState(false)
 
   const menuItems = [
-    { name: 'RSVP', href: '/rsvp' },
     { name: 'Venue', href: '/venue' },
-    { name: 'Schedule', href: '/schedule' },
+    { name: 'RSVP', href: '/rsvp' },
     { name: 'Menu', href: '/menu' },
+    { name: 'Schedule', href: '/schedule' },
     { name: 'Hotels', href: '/hotels' },
   ]
 
@@ -43,9 +42,9 @@ export default function Navbar() {
   return (
     <div className={styles.fixed}>
       <nav className={styles.navbar}>
-        <Link href={'/'}>
+        <a href={'/'}>
           <div className={styles.link} onClick={setFalse}><h3>Home</h3></div>
-        </Link>
+        </a>
         <div className={styles.hamburgerContainer} onClick={handleClick}>
           <div>
             <span className={styles.hamburger} />
@@ -63,9 +62,9 @@ export default function Navbar() {
       >
         {menuItems.map(({ name, href }) => {
           return (
-            <Link key={name} href={href}>
+            <a key={name} href={href} prefetch={false}>
               <div className={styles.dropdownLink} onClick={handleClick}><h3>{name}</h3></div>
-            </Link>
+            </a>
           )
         })}
       </motion.div>

@@ -1,26 +1,28 @@
 import clientPromise from "../../lib/mongodb"
+import styles from '../../styles/rsvp.module.css'
 
 export default function RsvpForm ({ family, food }) {
   return (
     <div>
-      <form action="/api/rsvp" method="POST">
+      <h1 className={styles.title}>RSVP</h1>
+      <form action="/api/rsvp" method="POST" className={styles.form}>
         {family.map((guest, i) => {
           return (
-            <div key={i}>
+            <div key={i} className={styles.guestPanel}>
               <h3 key={i}>{guest.firstName} {guest.lastName}</h3>
               <ul>
-                <li key={i} name="rsvp">
-                  <label htmlFor="rsvp">Attending: </label>
-                  <select name="rsvp">
+                <li className={styles.listItem} key={i} name="rsvp">
+                  <label className={styles.label} htmlFor="rsvp">Attending: </label>
+                  <select name="rsvp" className={styles.select}>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                   </select>
                 </li>
-                <li>
+                <li className={styles.listItem}>
                   {guest.eveningOrDay === 'day' ? (
                     <>
-                    <label htmlFor="foodChoice">Menu Choice: </label>
-                      <select name="foodChoice">
+                    <label className={styles.label} htmlFor="foodChoice">Menu Choice: </label>
+                      <select name="foodChoice" className={styles.select}>
                         {food.map((item, i) => {
                           { if (!guest.isChild && item.isChildOption) return }
                           return (
@@ -38,7 +40,7 @@ export default function RsvpForm ({ family, food }) {
             </div>
           )
         })}
-        <button>Submit</button>
+        <button className={styles.button}>Submit</button>
       </form>
     </div>
   )

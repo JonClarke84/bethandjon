@@ -35,7 +35,7 @@
 .titleContainer {
   margin-top: 15vh;
   width: 100%;
-  background-color: var(--dark-blue);
+  background-color: var(--dark-blue)!important;
 }
 
 .title {
@@ -46,7 +46,7 @@
 
 .subTitleContainer {
   width: 100%;
-  background-color: var(--blue);
+  background-color: var(--blue)!important;
 }
 
 .subTitle {
@@ -63,7 +63,7 @@
   min-width: 100vw;
   margin: 0;
   padding: 1em 0.25em;
-  background-color: var(--light-blue);
+  background-color: var(--light-blue)!important;
 }
 
 .adminLink {

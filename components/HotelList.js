@@ -1,8 +1,7 @@
-import styles from '../styles/hotelList.module.css'
+import styles from '../styles/hotellist.module.css'
 import Link from 'next/link'
 
 export default function HotelList({ title, content, url, description, map }) {
-
   const dangerousContent = { __html: content }
 
   return (
