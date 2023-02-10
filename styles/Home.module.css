@@ -13,7 +13,7 @@
 
 .home {
   position: relative;
-  min-height: 100vh;
+  min-height: 95vh;
   min-width: 100vw;
 }
 
@@ -35,7 +35,7 @@
 .titleContainer {
   margin-top: 15vh;
   width: 100%;
-  background-color: var(--dark-blue);
+  background-color: var(--dark-blue)!important;
 }
 
 .title {
@@ -46,7 +46,7 @@
 
 .subTitleContainer {
   width: 100%;
-  background-color: var(--blue);
+  background-color: var(--blue)!important;
 }
 
 .subTitle {
@@ -55,13 +55,36 @@
   text-align: center;
 }
 
-.progressBar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 10px;
-  background: var(--yellow);
-  transform-origin: 0%;
-  z-index: 5;
+.map {
+  border: 1px solid var(--dark-blue);
+}
+
+.pageHeader {
+  min-width: 100vw;
+  margin: 0;
+  padding: 1em 0.25em;
+  background-color: var(--light-blue)!important;
+}
+
+.adminLink {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+.guestListItem {
+  border: 1px solid var(--dark-blue);
+  margin: 0.5em 0;
+  padding: 0.5em;
+  width: fit-content;
+}
+
+.guestListTable {
+  margin: 0 auto;
+}
+
+.guestListTableItem {
+  border: 1px solid var(--dark-blue);
+  margin: 0.5em 0;
+  padding: 0.5em;
+  width: fit-content;
 }
