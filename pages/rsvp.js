@@ -26,12 +26,11 @@ export default function Rsvp() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    setLoading(true)
     const input = e.target.form[0].value
     const strippedInput = stripWhitespace(input)
     const sanitisedInput = makeLowerCase(strippedInput)
     const isPhone = checkIfPhone(sanitisedInput)
-
+    
     if(isPhone) {
       const family = await fetch('/api/getUser', {
         method: 'POST',
@@ -44,6 +43,7 @@ export default function Rsvp() {
       if(data.message === 'error') {
         setAlert('Sorry, we couldn\'t find that number. Maybe try your partner\'s phone number instead.')
       } else {
+        setLoading(true)
         router.push(`/rsvp/${data[0].familyId}`)
       }
     } else {
