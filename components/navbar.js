@@ -62,7 +62,7 @@ export default function Navbar() {
       >
         {menuItems.map(({ name, href }) => {
           return (
-            <a key={name} href={href} prefetch={false}>
+            <a key={name} href={href}>
               <div className={styles.dropdownLink} onClick={handleClick}><h3>{name}</h3></div>
             </a>
           )

@@ -21,9 +21,12 @@ function checkIfPhone(str) {
 export default function Rsvp() {
   const router = useRouter()
   const [alert, setAlert] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const error = router.query.error
 
   async function handleSubmit(e) {
     e.preventDefault()
+    setLoading(true)
     const input = e.target.form[0].value
     const strippedInput = stripWhitespace(input)
     const sanitisedInput = makeLowerCase(strippedInput)
@@ -52,11 +55,18 @@ export default function Rsvp() {
   return (
     <div>
       <h1 className={styles.title}>RSVP</h1>
-      <form className={styles.form}>
-      {alert && <p className={styles.alert}>{alert}</p>}
-      <input type='text' name='email-phone-input' placeholder='Enter your mobile phone number' className={styles.textInput}></input>
-      <button type="submit" onClick={handleSubmit} className={styles.button}>Sign in</button>
-    </form>
+      {loading ? (
+        <div className={styles.loadingContainer}>
+          <div className={styles.loadingSpinner}></div>
+        </div>
+      ):(
+        <form className={styles.form}>
+        {alert && <p className={styles.alert}>{alert}</p>}
+        {error && <p className={styles.alert}>Sorry, something went wrong. Please try again.</p>}
+        <input type='text' name='email-phone-input' placeholder='Enter your mobile phone number' className={styles.textInput}></input>
+        <button type="submit" onClick={handleSubmit} className={styles.button}>Sign in</button>
+      </form>
+      )}
     </div>
   )
 }
