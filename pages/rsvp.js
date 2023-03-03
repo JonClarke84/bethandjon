@@ -36,7 +36,7 @@ export default function Rsvp() {
       if(data.message === 'error') {
         setAlert('Sorry, something went wrong. Please try again later. If you continue to have problems, please let us know.')
       } else if (!data[0]) {
-        setAlert('Sorry, we couldn\'t find a family with login number.')
+        setAlert('Sorry, we couldn\'t find a family with that login number.')
       } else {
         setLoading(true)
         router.push(`/rsvp/${data[0].familyId}`)
