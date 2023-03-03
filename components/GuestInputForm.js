@@ -20,10 +20,6 @@ export default function GuestInputForm({ guest, setGuest, success, addedGuestNam
           <input type="text" name="lastName" id="lastName" onChange={e => setGuest({ ...guest, lastName: e.target.value })} required />
         </p>
         <p>
-          <label htmlFor="phone">Phone: </label>
-          <input type="tel" name="phone" id="phone" onChange={e => setGuest({ ...guest, phone: e.target.value })} required />
-        </p>
-        <p>
           <label htmlFor="eveningOrDay">Evening or Day: </label>
           <select name="eveningOrDay" id="eveningOrDay">
             <option value="evening">Evening</option>
