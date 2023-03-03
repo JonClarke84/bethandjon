@@ -2,6 +2,7 @@ import clientPromise from "../../lib/mongodb"
 import styles from '../../styles/rsvp.module.css'
 
 export default function RsvpForm ({ family, food }) {
+  console.log('family: ', family)
   return (
     <div>
       <h1 className={styles.title}>RSVP</h1>
@@ -14,6 +15,7 @@ export default function RsvpForm ({ family, food }) {
                 <li className={styles.listItem} key={i} name="rsvp">
                   <label className={styles.label} htmlFor="rsvp">Attending: </label>
                   <select name="rsvp" className={styles.select}>
+                    <option default hidden value=''>RSVP here</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                   </select>
@@ -51,7 +53,7 @@ export async function getServerSideProps(context) {
   const client = await clientPromise
   const db = client.db("bethandjon")
 
-  const family = await db.collection("guests").find({familyId}).toArray()
+  const family = await (await db.collection("guests").find({familyId}).toArray()).sort((a, b) => a.isChild - b.isChild)
   const food = await db.collection("food").find({}).toArray()
 
   return {

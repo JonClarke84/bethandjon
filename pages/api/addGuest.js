@@ -9,8 +9,16 @@ export default async function handler(req, res) {
   const db = client.db("bethandjon")
 
   const generateFamilyId = () => {
-    const familyId = Math.floor(Math.random() * 100000000000000000)
-    return familyId
+    const randomSixDigitPasscode = Math.floor(1000 + Math.random() * 9000)
+    if(checkIfFamilyIdExists(randomSixDigitPasscode).length > 0) {
+      return generateFamilyId()
+    } else {
+      return randomSixDigitPasscode
+    }
+  }
+
+  function checkIfFamilyIdExists(id) {
+    return db.collection("guests").find({ familyId: id }).toArray()
   }
 
   const familyID = generateFamilyId()
@@ -48,17 +56,19 @@ export default async function handler(req, res) {
     }
   }
 
-  req.body.children.forEach((child) => {
-    const childPerson = new Person({
-      firstName: child,
-      lastName: setLastName(),
-      invited: true,
-      eveningOrDay: req.body.eveningOrDay,
-      isChild: true,
-      familyId: familyID
+  if(req.body.children[0] != undefined) {
+    req.body.children.forEach((child) => {
+      const childPerson = new Person({
+        firstName: child,
+        lastName: setLastName(),
+        invited: true,
+        eveningOrDay: req.body.eveningOrDay,
+        isChild: true,
+        familyId: familyID
+      })
+      people.push(childPerson)
     })
-    people.push(childPerson)
-  })
+  }
   
   await db.collection("guests").insertMany(people)
 
