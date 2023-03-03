@@ -14,6 +14,7 @@ export default function Navbar() {
     { name: 'Menu', href: '/menu' },
     { name: 'Schedule', href: '/schedule' },
     { name: 'Hotels', href: '/hotels' },
+    { name: 'FAQs', href: '/faq'}
   ]
 
   function handleClick() {
