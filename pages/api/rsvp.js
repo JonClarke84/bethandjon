@@ -4,7 +4,7 @@ import { ObjectId } from 'mongodb'
 async function mutateGuest(db, guestId, rsvp, foodChoice) {
   await db.collection("guests").updateOne(
     { _id: ObjectId(guestId) },
-    { $set: { rsvp, foodChoice } }
+    { $set: { rsvp, foodChoice, hasResponded: true } }
     )
   }
 
