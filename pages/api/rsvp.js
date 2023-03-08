@@ -6,6 +6,7 @@ async function mutateGuest(db, guestId, rsvp, foodChoice) {
     { _id: ObjectId(guestId) },
     { $set: { rsvp, foodChoice, hasResponded: true } }
     )
+    console.log('Updated guest: ', guestId, rsvp, foodChoice)
   }
 
 export default async function handler(req, res) {
