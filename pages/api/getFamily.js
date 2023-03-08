@@ -1,7 +1,7 @@
 import clientPromise from "../../lib/mongodb"
 
 export default async function handler (req, res) {
-  console.log('Requesting family with familyId: ', req.body.loginNumber, typeof req.body.loginNumber)
+  console.log('Requesting family with familyId: ', req.body.loginNumber)
 
   const client = await clientPromise
   const db = client.db("bethandjon")
