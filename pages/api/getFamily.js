@@ -11,6 +11,7 @@ export default async function handler (req, res) {
     console.log('Found family: ', family)
     res.status(200).json(family)
   } catch (err) {
+    console.log(err)
     res.status(500).json({ message: 'error' })
   }
 }
