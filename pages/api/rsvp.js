@@ -22,7 +22,7 @@ export default async function handler(req, res) {
     for (let i = 0; i < req.body.rsvp.length; i++) {
       await mutateGuest(db, req.body.guestId[i], setRsvp(req.body.rsvp[i]), req.body.foodChoice[i])
     }
-
+    console.log('RSVP Success: ', req.body)
     res.redirect(302, '/rsvp/success')
   } catch (error) {
     console.log(error)
