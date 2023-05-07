@@ -10,10 +10,10 @@
 
 # production
 /build
-/pages/admin/add-guest
-/pages/admin/add-hotel
-/pages/admin/index
-/pages/admin/invites
+/pages/admin/add-guest.js
+/pages/admin/add-hotel.js
+/pages/admin/index.js
+/pages/admin/invites.js
 
 # misc
 .DS_Store
