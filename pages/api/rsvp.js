@@ -1,31 +1,35 @@
 import clientPromise from '../../lib/mongodb'
 import { ObjectId } from 'mongodb'
 
+async function mutateGuest(db, guestId, rsvp, foodChoice) {
+  await db.collection("guests").updateOne(
+    { _id: ObjectId(guestId) },
+    { $set: { rsvp, foodChoice, hasResponded: true } }
+    )
+    console.log('Updated guest: ', guestId, rsvp, foodChoice)
+  }
+  
 export default async function handler(req, res) {
   try { 
     const client = await clientPromise
     const db = client.db("bethandjon")
     
-    async function mutateGuest(guestId, rsvp, foodChoice) {
-      await db.collection("guests").updateOne(
-        { _id: ObjectId(guestId) },
-        { $set: { rsvp, foodChoice } }
-        )
-      }
-      
     function setRsvp (rsvp) {
       if (rsvp === 'yes') return true
       return false
     }
-      
-    console.log(req.body)
-    const familyId = req.body.familyId
-      
-    req.body.guestId.forEach(async (guest, index) => {
-      await mutateGuest(guest, setRsvp(req.body.rsvp[index]), req.body.foodChoice[index])
-    })
+
+    req.body.rsvp = Array.isArray(req.body.rsvp) ? req.body.rsvp : [req.body.rsvp]
+    req.body.guestId = Array.isArray(req.body.guestId) ? req.body.guestId : [req.body.guestId]
+    req.body.foodChoice = Array.isArray(req.body.foodChoice) ? req.body.foodChoice : [req.body.foodChoice]
+
+    for (let i = 0; i < req.body.rsvp.length; i++) {
+      await mutateGuest(db, req.body.guestId[i], setRsvp(req.body.rsvp[i]), req.body.foodChoice[i])
+    }
+    console.log('RSVP Success: ', req.body)
     res.redirect(302, '/rsvp/success')
   } catch (error) {
+    console.log(error)
     res.redirect(302, `/rsvp/?error=true`)
   }
 }
