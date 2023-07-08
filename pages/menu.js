@@ -43,7 +43,7 @@ export default function Menu({ menu }) {
           <div className={styles.sectionContent}>
               <h3>Dessert</h3>
               <ul>
-                <li><i>Something cold...</i></li>
+                <li><i>Something cold, and something fancy...</i></li>
               </ul>
           </div>
         </section>
@@ -51,7 +51,7 @@ export default function Menu({ menu }) {
           <div className={styles.sectionContent}>
             <h3>Evening</h3>
             <ul>
-              <li>Pizza and chips</li>
+              <li>Pizza and chips (and pick 'n mix)</li>
             </ul>
           </div>
         </section>
