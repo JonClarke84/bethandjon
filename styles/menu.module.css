@@ -31,11 +31,6 @@
   color: var(--dark-blue);
 }
 
-.section:nth-child(3n) { 
-  background-color: var(--light-blue)!important;
-  color: var(--dark-blue);
-}
-
 @media screen and (min-width: 768px) {
   .section {
     padding: 1rem 2rem;

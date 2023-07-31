@@ -1,5 +1,5 @@
 .schedule {
-  text-align: center;
+  text-align: left;
   margin: 0 auto;
   width: clamp(300px, 50%, 500px);
   padding: 0.5rem;
