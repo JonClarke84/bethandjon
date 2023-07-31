@@ -10,10 +10,12 @@ export default function Navbar() {
 
   const menuItems = [
     { name: 'Venue', href: '/venue' },
-    { name: 'RSVP', href: '/rsvp' },
+    // { name: 'RSVP', href: '/rsvp' },
     { name: 'Menu', href: '/menu' },
     { name: 'Schedule', href: '/schedule' },
     { name: 'Hotels', href: '/hotels' },
+    { name: 'Parking', href: '/parking' },
+    { name: 'FAQs', href: '/faq'}
   ]
 
   function handleClick() {
