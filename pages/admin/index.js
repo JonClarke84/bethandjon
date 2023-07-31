@@ -17,8 +17,13 @@ export default function Admin() {
           </Link>
         </li>
         <li>
-          <Link href="/admin/invite-list">
+          <Link href="/admin/invites">
             <span className={styles.adminLink}>Invite List</span>
+          </Link>
+        </li>
+        <li>
+          <Link href="/admin/update">
+            <span className={styles.adminLink}>Update messages</span>
           </Link>
         </li>
       </ul>
